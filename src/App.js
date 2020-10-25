@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import VoteForm from './components/VoteForm'
+import Header from './components/Header'
 
 function App() {
   const myChoiceApiVoteURL = 'https://mychoice-api.herokuapp.com/api/vote'
@@ -39,6 +40,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <VoteForm
         formChange={ handleChange }
         formSubmit={ handleSubmit }
