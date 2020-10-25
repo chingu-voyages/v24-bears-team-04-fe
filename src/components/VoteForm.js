@@ -1,44 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import {
-  Button,
   Col,
-  Container,
-  Form,
   Row
 } from "reactstrap";
 import President from './President'
-import VoteResult from './VoteResult'
+import Sidebar from './Sidebar'
+import SuccessfulVote from './SuccessfulVote'
 
 const VoteForm = ({ formChange, formSubmit, voted }) => {
-    if (voted) {
+  const [visible, setVisible] = useState(true);
+  const onDismiss = () => setVisible(false);
+
     return (
       <>
-        <Container>
-         <Row>
-          <div className='mt-4 mb-2 alert alert-success' >
-            <h4>Your vote is safe with us</h4>
-          </div>
-         </Row>
-
-        <Row>
-          <VoteResult />
+        <Row className='mt-4 ml-3'>
+        <Col xl='4' lg='10' md='10' sm='11' className='mb-4'>
+          <Sidebar />
+        </Col>
+      
+        <Col xl='8' lg='10' md='10' sm='11'>
+          {
+            (voted)
+            ? <SuccessfulVote visible={ visible } onDismiss={ onDismiss } />
+            : <President onSubmit={ formSubmit } handleChange={ formChange } />
+          }
+        </Col>
         </Row>
-        </Container>
       </>
     )
-  }
-
-
-  return (
-    <Container>
-      <Col md="6" id="col">
-        <Form onSubmit={ formSubmit }>
-          <President handleChange={ formChange } />
-          <Button color="success" size="lg" shadow="lg">Vote</Button>
-        </Form>
-      </Col>
-    </Container>
-  )
 }
 
 export default VoteForm;
