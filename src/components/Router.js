@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import "./App.css";
-import VoteForm from "./components/VoteForm";
-import Header from "./components/Header";
+import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Header from "./Header";
 
-function App() {
+export default function App() {
   const myChoiceApiVoteURL = "https://mychoice-api.herokuapp.com/api/vote";
   const [hasVoted, setHasVoted] = useState(false);
   const [value, setValue] = useState("");
@@ -34,17 +33,24 @@ function App() {
         console.log("Error submitting vote.. ", error);
       });
   };
-
   return (
-    <div className="App">
+    <Router>
       <Header />
-      <VoteForm
-        formChange={handleChange}
-        formSubmit={handleSubmit}
-        voted={hasVoted}
-      />
-    </div>
+      <Switch>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="/users">
+          <Users />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
-export default App;
+function About() {
+  return <h2>About</h2>;
+}

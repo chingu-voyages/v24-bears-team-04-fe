@@ -1,14 +1,11 @@
-import React from 'react';
-import {
-  Alert,
-  Row
-} from 'reactstrap';
-import VoteResult from './VoteResult';
+import React from "react";
+import { Alert, Row } from "reactstrap";
+import VoteResult from "./VoteResult";
 
-const SuccessfulVote = ({visible, onDismiss}) => (
+const SuccessfulVote = ({ visible, onDismiss }) => (
   <>
     <Row>
-      <Alert color='success' isOpen={visible} toggle={onDismiss} fade={false} >
+      <Alert color="success" isOpen={visible} toggle={onDismiss} fade={false}>
         <h4>Your vote is safe with us</h4>
       </Alert>
     </Row>
@@ -17,7 +14,6 @@ const SuccessfulVote = ({visible, onDismiss}) => (
       <VoteResult />
     </Row>
   </>
-)
+);
 
 export default SuccessfulVote;
-
