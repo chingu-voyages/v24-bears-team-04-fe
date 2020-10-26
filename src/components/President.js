@@ -1,38 +1,38 @@
 import React from "react";
-import { Button, Form } from "reactstrap";
+import { Button, Form, Input, Label, FormGroup } from "reactstrap";
 import "./FunkyDiv.scss";
 
 const President = ({ onSubmit, handleChange }) => (
   <Form onSubmit={onSubmit}>
-    <div className="funkyradio">
-      <div className="funkyradio-success">
-        <input
+    <FormGroup className="funkyradio">
+      <FormGroup className="funkyradio-success">
+        <Input
           type="radio"
           name="president"
           id="president-1"
           value="Barack Obama"
           onChange={handleChange}
         />
-        <label for="president-1">
+        <Label for="president-1">
           <span className="text-uppercase">Barack Obama</span>
           <span className="d-block">Democratic Party</span>
-        </label>
-      </div>
+        </Label>
+      </FormGroup>
 
-      <div className="funkyradio-success">
-        <input
+      <FormGroup className="funkyradio-success">
+        <Input
           type="radio"
           name="president"
           id="president-2"
           value="John McCain"
           onChange={handleChange}
         />
-        <label for="president-2">
+        <Label for="president-2">
           <span className="text-uppercase">John McCain</span>
           <span className="d-block">Republican Party</span>
-        </label>
-      </div>
-    </div>
+        </Label>
+      </FormGroup>
+    </FormGroup>
 
     <Button color="success" size="lg" className="shadow-sm mt-3 ">
       Vote
