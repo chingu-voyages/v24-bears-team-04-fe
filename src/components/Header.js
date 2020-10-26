@@ -8,9 +8,9 @@ import {
   NavbarBrand,
   NavbarToggler,
   NavItem,
-  NavLink,
   Row,
 } from "reactstrap";
+import { NavLink } from "react-router-dom";
 
 const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,16 +31,24 @@ const Header = (props) => {
               <Col md="9">
                 <Nav className="d-flex justify-content-between" navbar>
                   <NavItem>
-                    <NavLink href="#">Feed</NavLink>
+                    <NavLink to="/feed" className="nav-link">
+                      Feed
+                    </NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink href="#">My Constituency</NavLink>
+                    <NavLink to="#" className="nav-link">
+                      My Constituency
+                    </NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink href="#">My Representatives</NavLink>
+                    <NavLink to="#" className="nav-link">
+                      My Representatives
+                    </NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink href="#">Notifications</NavLink>
+                    <NavLink to="#" className="nav-link">
+                      Notifications
+                    </NavLink>
                   </NavItem>
                 </Nav>
               </Col>
