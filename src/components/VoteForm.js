@@ -1,34 +1,33 @@
 import React, { useState } from "react";
 import {
-  Button,
-  Form,
-  Container,
   Col,
+  Row
 } from "reactstrap";
 import President from './President'
+import Sidebar from './Sidebar'
+import SuccessfulVote from './SuccessfulVote'
 
-const VoteForm = () => {
-  const [value, setValue] = useState("")
+const VoteForm = ({ formChange, formSubmit, voted }) => {
+  const [visible, setVisible] = useState(true);
+  const onDismiss = () => setVisible(false);
 
-  const handleChange = e => {
-    setValue(e.target.value)
-  }
-  
-  const handleSubmit = e => {
-    alert("A name was submitted: " + value);
-    e.preventDefault();
-  }
-
-  return (
-    <Container>
-      <Col md="6">
-        <Form onSubmit={handleSubmit}>
-          <President handleChange={handleChange} />
-          <Button color="primary">Submit</Button>
-        </Form>
-      </Col>
-    </Container>
-  )
+    return (
+      <>
+        <Row className='mt-4 ml-3'>
+        <Col xl='4' lg='10' md='10' sm='11' className='mb-4'>
+          <Sidebar />
+        </Col>
+      
+        <Col xl='8' lg='10' md='10' sm='11'>
+          {
+            (voted)
+            ? <SuccessfulVote visible={ visible } onDismiss={ onDismiss } />
+            : <President onSubmit={ formSubmit } handleChange={ formChange } />
+          }
+        </Col>
+        </Row>
+      </>
+    )
 }
 
 export default VoteForm;
