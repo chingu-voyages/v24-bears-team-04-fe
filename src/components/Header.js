@@ -28,7 +28,7 @@ const Header = (props) => {
             </Col>
 
             <Collapse isOpen={!isOpen} navbar>
-              <Col md="9">
+              <Col md="8">
                 <Nav className="d-flex justify-content-between" navbar>
                   <NavItem>
                     <NavLink to="/feed" className="nav-link">
@@ -59,6 +59,14 @@ const Header = (props) => {
                   <Badge color="info">
                     <small>Voter</small>
                   </Badge>
+
+                  <Nav className="d-inline-block">
+                    <NavItem>
+                      <NavLink to="/login" className="nav-link">
+                        Login
+                      </NavLink>
+                    </NavItem>
+                  </Nav>
                 </div>
               </Col>
             </Collapse>

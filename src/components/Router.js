@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Header from "./Header";
 import VoteForm from "./VoteForm";
+import Login from "./sessions/Login";
 
 export default function App() {
   const myChoiceApiVoteURL = "https://mychoice-api.herokuapp.com/api/vote";
@@ -38,8 +39,8 @@ export default function App() {
     <React.Fragment>
       <Header />
       <Switch>
-        <Route path="/feed">
-          <Feed />
+        <Route path="/login">
+          <Login />
         </Route>
         <Route path="/">
           <VoteForm
@@ -51,8 +52,4 @@ export default function App() {
       </Switch>
     </React.Fragment>
   );
-}
-
-function Feed() {
-  return <h2>Feed</h2>;
 }
