@@ -1,3 +1,7 @@
+import React, { useState } from "react";
+
+import { Button, Form, FormGroup, Input, Label } from "reactstrap";
+
 const NationForm = () => {
   const [name, setName] = useState("");
   const [isoLongCode, setIsoLongCode] = useState("");
@@ -5,7 +9,6 @@ const NationForm = () => {
   const [unCode, setUnCode] = useState("");
   const [telCode, setTelCode] = useState("");
   const [regionType, setRegionType] = useState("");
-  const [NationCreated, setNationCreated] = useState(false);
 
   const nameChange = (e) => setName(e.target.value);
   const longCodeChange = (e) => setIsoLongCode(e.target.value);
@@ -27,8 +30,76 @@ const NationForm = () => {
     };
 
     console.log("You entered: ", data);
-    setNationCreated(true);
   };
+
+  return (
+    <>
+      <Form onSubmit={handleSubmit}>
+        <h2 className="mb-4">Nation - New</h2>
+        <FormGroup>
+          <Label>Name:</Label>
+          <Input type="text" name="name" value={name} onChange={nameChange} />
+        </FormGroup>
+
+        <FormGroup>
+          <Label>ISO Long Code:</Label>
+          <Input
+            type="text"
+            name="isoLongCode"
+            value={isoLongCode}
+            onChange={longCodeChange}
+          />
+        </FormGroup>
+
+        <FormGroup>
+          <Label>ISO Short Code:</Label>
+          <Input
+            type="text"
+            name="isoShortCode"
+            value={isoShortCode}
+            onChange={shortCodeChange}
+          />
+        </FormGroup>
+
+        <FormGroup>
+          <Label>UN Code:</Label>
+          <Input
+            type="text"
+            name="unCode"
+            value={unCode}
+            onChange={unCodeChange}
+          />
+        </FormGroup>
+
+        <FormGroup>
+          <Label>Tel Code:</Label>
+          <Input
+            type="text"
+            name="telCode"
+            value={telCode}
+            onChange={telCodeChange}
+          />
+        </FormGroup>
+
+        <FormGroup>
+          <Label>Type of Regions available: </Label>
+          <Input
+            type="select"
+            name="regionType"
+            value={regionType}
+            onChange={regionTypeChange}
+          >
+            <option value="state">State Only</option>
+            <option value="county">County Only</option>
+          </Input>
+        </FormGroup>
+
+        <Button color="primary" size="lg">
+          Create
+        </Button>
+      </Form>
+    </>
+  );
 };
 
 export default NationForm;

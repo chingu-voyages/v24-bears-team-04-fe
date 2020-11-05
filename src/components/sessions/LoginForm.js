@@ -9,7 +9,7 @@ const loginform = ({
   handlePassword,
 }) => (
   <Form onSubmit={onSubmit}>
-    <h3 className="mb-4">Login</h3>
+    <h2 className="mb-4">Login</h2>
 
     <FormGroup>
       <Label>Your Email:</Label>

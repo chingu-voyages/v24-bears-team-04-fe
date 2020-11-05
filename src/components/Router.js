@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import Header from "./Header";
 import VoteForm from "./VoteForm";
 import Login from "./sessions/Login";
-import AllNations from "./locality/nations/AllNations";
+import Nation from "./locality/nations/Nation";
 
 export default function App() {
   const myChoiceApiVoteURL = "https://mychoice-api.herokuapp.com/api/vote";
@@ -44,7 +44,7 @@ export default function App() {
           <Login />
         </Route>
         <Route path="/nations">
-          <AllNations />
+          <Nation />
         </Route>
         <Route path="/">
           <VoteForm
