@@ -31,8 +31,8 @@ const Header = (props) => {
               <Col md="8">
                 <Nav className="d-flex justify-content-between" navbar>
                   <NavItem>
-                    <NavLink to="/feed" className="nav-link">
-                      Feed
+                    <NavLink to="/nations" className="nav-link">
+                      Locality
                     </NavLink>
                   </NavItem>
                   <NavItem>
