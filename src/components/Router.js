@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Header from "./Header";
 import VoteForm from "./VoteForm";
+import Login from "./sessions/Login";
+import Nation from "./locality/nations/Nation";
+import Region from "./locality/regions/Region";
 
 export default function App() {
   const myChoiceApiVoteURL = "https://mychoice-api.herokuapp.com/api/vote";
@@ -38,9 +41,17 @@ export default function App() {
     <React.Fragment>
       <Header />
       <Switch>
-        <Route path="/feed">
-          <Feed />
+        <Route exact path="/login">
+          <Login />
         </Route>
+        <Route path="/nations">
+          <Nation />
+        </Route>
+
+        <Route path="/regions">
+          <Region />
+        </Route>
+
         <Route path="/">
           <VoteForm
             formChange={handleChange}
@@ -51,8 +62,4 @@ export default function App() {
       </Switch>
     </React.Fragment>
   );
-}
-
-function Feed() {
-  return <h2>Feed</h2>;
 }
