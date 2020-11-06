@@ -4,6 +4,7 @@ import Header from "./Header";
 import VoteForm from "./VoteForm";
 import Login from "./sessions/Login";
 import Nation from "./locality/nations/Nation";
+import Region from "./locality/regions/Region";
 
 export default function App() {
   const myChoiceApiVoteURL = "https://mychoice-api.herokuapp.com/api/vote";
@@ -40,12 +41,17 @@ export default function App() {
     <React.Fragment>
       <Header />
       <Switch>
-        <Route path="/login">
+        <Route exact path="/login">
           <Login />
         </Route>
         <Route path="/nations">
           <Nation />
         </Route>
+
+        <Route path="/regions">
+          <Region />
+        </Route>
+
         <Route path="/">
           <VoteForm
             formChange={handleChange}
